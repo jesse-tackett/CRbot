@@ -117,7 +117,7 @@ async def wait_for_stream_start(retryTime = 60):
             await asyncio.sleep(retryTime)
 
 async def main():
-    bearer_token = 'AAAAAAAAAAAAAAAAAAAAABPPNwEAAAAAAreK%2FP3ZBIKXPtqgORO9Pk1SYhY%3Dq0Qc3OQpjD82o1lRxhTmmOda16hTWWF0Zm4bcUJ005McqZWuAb'
+    bearer_token = os.getenv("BEARER_TOKEN")
     headers = create_headers(bearer_token)
     rules = get_rules(headers, bearer_token)
     delete = delete_all_rules(headers, bearer_token, rules)
